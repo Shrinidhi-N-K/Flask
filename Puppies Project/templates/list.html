@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <h1>Here is the list of available puppies</h1>
+    <ul>
+        {% for pup in puppies%}
+        <li>{{pup}}</li>
+        {%endfor%}
+    </ul>
+</div>
+{%endblock%}
