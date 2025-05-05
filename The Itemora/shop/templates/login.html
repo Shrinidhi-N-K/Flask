@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Login Page
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; position: relative;">
+  <div class="col-md-6 col-lg-4 bg-dark p-4 pt-5 rounded shadow text-center position-relative">
+
+    <!-- Logo Sticker -->
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}"
+     alt="Logo"
+     class="rounded-circle shadow"
+     style="
+       width: 100px;
+       height: 100px;
+       object-fit: cover;
+       position: absolute;
+       top: -50px;
+       left: 50%;
+       transform: translateX(-50%);
+       border: 5px solid #ffffff; /* brighter visible border */
+       background-color: #212121;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* optional soft shadow */
+     ">
+
+    <h1 class="text-center mb-4 mt-3">Login as a User</h1>
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <div class="mb-3 text-center">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+      </div>
+      <div class="mb-3 text-center">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control",autocomplete="off") }}
+      </div>
+      <div class="checkbox mb-3">
+        <h6>Do not have an account</h6>
+        <a class="btn btn-sm btn-secondary" href="{{url_for('main.register_page')}}"> Register </a>
+      </div>
+      <div class="d-grid">
+        {{ form.submit(class="btn btn-primary w-100") }}
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
